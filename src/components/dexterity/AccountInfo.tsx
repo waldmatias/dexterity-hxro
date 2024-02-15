@@ -32,7 +32,7 @@ export const AccountInfo: FC = () => {
         setOrderData(orderData);
 
         setUpdated(true);
-        setLastUpdated(Date.now())
+        setLastUpdated(Date.now());
 
     }, [trader, selectedProduct]); // Removed markPrice and indexPrice
 

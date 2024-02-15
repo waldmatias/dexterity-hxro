@@ -49,11 +49,11 @@ export const SelectTraderAccounts: FC = () => {
         }
     }, [fetchTraderAccounts, manifest]);
 
-    const handleSelection = useCallback(async (selectedValue: string) => {
+    const handleSelection = useCallback(async (selectedTrgPubkey: string) => {
 
-            if (selectedValue == "default") return;
+            if (selectedTrgPubkey == "default") return;
 
-            const trgPubKey = new PublicKey(selectedValue);
+            const trgPubKey = new PublicKey(selectedTrgPubkey);
             const trader = new dexterity.Trader(manifest, trgPubKey);
 
             await trader.update(); 

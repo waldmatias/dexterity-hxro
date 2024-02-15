@@ -17,10 +17,14 @@ export const FundingTrader: FC = () => {
 
     const handleDeposit = useCallback(async () => {
         if (!amount || !publicKey || !manifest) return;
+
+        console.log(`Handling deposit`);
         try {
           setIsLoading(true);
           setDepositStatus('processing');
-          await trader.deposit(dexterity.Fractional.New(amount, 0), null);
+
+          console.log(`trader.deposit: ${amount}`);
+          await trader.deposit(dexterity.Fractional.New(amount, 0), null)
 
         } catch (error: any) {
             setDepositStatus('failed');
@@ -49,7 +53,7 @@ export const FundingTrader: FC = () => {
 
     return (
         <div className="flex flex-col justify-center items-center border border-white rounded-lg p-4 mt-4">
-          <h1 className='text-2xl mb-4'>Funding Trader Account</h1>
+          <h1 className='text-2xl mb-4'>Funding Account</h1>
         
           <div className="w-full flex flex-col items-center mt-20 mb-6">
             <label htmlFor="amountInput" className="text-xl font-semibold mb-1">Amount</label>
